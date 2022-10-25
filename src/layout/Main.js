@@ -7,8 +7,9 @@ import Header from '../pages/shared/Header/Header';
 const Main = () => {
     return (
         <div>
-            <Header></Header>
-            <Container>
+            
+            <Container fluid>
+            <Header ></Header>
                 <Row>
                     <Outlet></Outlet>
                 </Row>

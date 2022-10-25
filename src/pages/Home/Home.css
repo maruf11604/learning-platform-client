@@ -1,0 +1,60 @@
+
+
+.img{
+    background:linear-gradient(rgba(0, 0, 0,0.3), rgba(0, 0, 0,0.6)), url('../../assets/image/picture.jpg');
+    position: relative;
+    min-height: 100vh;
+    background-size: cover;
+}
+.header{
+    font-size: 70px;
+    text-align: center;
+}
+.para{
+    font-size: 20px;
+}
+
+@media screen and (max-width:1200px) {
+    .img{
+        min-height: 100vh;
+    }
+    .header{
+        font-size: 70px;
+    }
+}
+
+@media screen and (max-width:992px){
+    .img{
+        min-height: 80vh;
+    }
+    .header{
+        font-size: 50px;
+    }
+    
+}
+
+@media screen and (max-width:768px) {
+    .img{
+        min-height: 50vh;
+    }
+    .header{
+        font-size: 30px;
+    }
+    .para{
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width:576px) {
+    .img{
+        min-height: 30vh;
+    }
+    .header{
+        font-size: 20px;
+    }
+    .para{
+        font-size: 10px;
+    }
+}
+
+ 
