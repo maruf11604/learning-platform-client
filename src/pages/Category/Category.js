@@ -5,10 +5,10 @@ import Course from '../Course/Course';
 
 const Category = () => {
     const allresults=useLoaderData();
-    console.log(allresults);
+    // console.log(allresults);
     
     return (
-        <div className="row row-cols-1 row-cols-md-2 g-4">
+        <div className="row row-cols-1 row-cols-md-3 g-4 py-5">
             {
                 allresults.map(result=> <CategorySummary key={result.id} result={result} ></CategorySummary>)
             }

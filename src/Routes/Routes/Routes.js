@@ -7,6 +7,9 @@ import Category from "../../pages/Category/Category";
 import Course from "../../pages/Course/Course";
 import Faq from "../../pages/Faq/Faq";
 import Home from "../../pages/Home/Home";
+import Program from "../../pages/Program/Program";
+import Login from "../../pages/Login/Login/Login";
+import Register from "../../pages/Login/Register/Register";
 
 export const routes=createBrowserRouter([
     {
@@ -34,12 +37,22 @@ export const routes=createBrowserRouter([
                 loader:({params})=>fetch(`http://localhost:5000/course/${params.id}`)
             },
             {
-                path:'/faq',
-                element:<Faq></Faq>
+                path:'/program/:id',
+                element:<Program></Program>,
+                loader:({params})=>fetch(`http://localhost:5000/program/${params.id}`)
             },
+            
             {
                 path:'/blog',
                 element:<Blog></Blog>
+            },
+            {
+                path:'/login',
+                element:<Login></Login>
+            },
+            {
+                path:'/register',
+                element:<Register></Register>
             }
             
             

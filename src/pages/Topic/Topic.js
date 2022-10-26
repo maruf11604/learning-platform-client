@@ -9,7 +9,7 @@ import Course from '../Course/Course';
 const Topic = () => {
     const {mode,bgMode}=useContext(AuthContext);
     const values=useLoaderData();
-    console.log(values)
+    // console.log(values)
     return (
         <div>
             <Container>
@@ -18,7 +18,7 @@ const Topic = () => {
                         <AllCourse values={values}></AllCourse>
                     </Col>
                     <Col lg='8'>
-                        <div className="row row-cols-1 row-cols-md-2 g-4">
+                        <div className="row row-cols-1 row-cols-md-2 g-4 py-5">
                         {
                             values.map(value => <Course key={value.id} value={value}></Course>)
                         }
