@@ -17,7 +17,7 @@ const Footer = () => {
                 <Link><FaGoogle className='fs-1 me-5'></FaGoogle></Link>
                <Link> <FaInstagram className='fs-1 me-5 text-warning'></FaInstagram></Link>
             </div>
-            <h1 className={mode}>this is footer </h1>
+            <p className={mode}>@Copyright 2022 Maruf Ahmed</p>
         </div>
         </div>
         </Container>

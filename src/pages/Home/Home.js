@@ -6,7 +6,7 @@ import './Home.css'
 
 const Home = () => {
     
-    const {mode,bgMode}=useContext(AuthContext)
+    const {mode,bgMode}=useContext(AuthContext);
        
     return (
         
@@ -21,11 +21,11 @@ const Home = () => {
                     <h1 className='text-center pt-3' ><p className={mode}>Welcome</p></h1>
                   <div className="container overflow-hidden">
                         <div className="row g-5 pb-5" >
-                            <div className="col-sm-6 col-12"style={{bgMode}} >
-                              <div className="p-1 border "><p className={mode}>{'The value of good education cannot be underestimated. From the childhood and up to the adult age each of us tries to discover something new, have deeper knowledge of various subjects and simply learn the world better. Based on the level of your education you can earn respect and recognition in the society.'.slice(0,200)+"..."}</p></div>
+                            <div className=" col-md-6 col-sm-12 col-12"style={{bgMode}} >
+                              <div className="p-5 border "><p className={mode}>{'The value of good education cannot be underestimated. From the childhood and up to the adult age each of us tries to discover something new, have deeper knowledge of various subjects and simply learn the world better. Based on the level of your education you can earn respect and recognition in the society.'.slice(0,200)+"..."}</p></div>
                             </div>
-                            <div className="col-sm-6 col-12"style={{bgMode}} >
-                              <div className="p-1 border "><p className={mode}>{'You will get your future job and climb the career ladder depending on the knowledge  that you get at school, college, university, etc. Are you a fast learner? How quickly can you solve different tasks and find the tight solution of a problem? These are only some of the factors that determine your professional success.'.slice(0,200)+"..."}</p></div>
+                            <div className=" col-md-6 col-sm-12 col-12"style={{bgMode}} >
+                              <div className="p-5 border "><p className={mode}>{'You will get your future job and climb the career ladder depending on the knowledge  that you get at school, college, university, etc. Are you a fast learner? How quickly can you solve different tasks and find the tight solution of a problem? These are only some of the factors that determine your professional success.'.slice(0,200)+"..."}</p></div>
                             </div>
                             
                         </div>

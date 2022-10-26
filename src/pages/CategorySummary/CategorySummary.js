@@ -1,17 +1,13 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import React from 'react';
 
-
-const Course = ({value}) => {
-    const {mode,bgMode}=useContext(AuthContext);
-    const {assignment,picture,quizzes,rating,text,title,videos}=value;
-    
-    console.log(value)
+const CategorySummary = ({result}) => {
+    console.log(result)
+    const {assignment,picture,quizzes,rating,text,title,videos}=result;
     return (
         <div>
              <div className="col">
                 <div className="card">
-                <img style={{height:'200px'}} src={picture} className="card-img-top" alt="..."/>
+                <img style={{height:'200px'}} src={picture} class="card-img-top" alt="..."/>
                 <div className="card-body">
                     <h5 className="card-title">{title}</h5>
                     <p className="card-text">{text.slice(0,100)+ ""+"read More..."}</p>
@@ -31,4 +27,4 @@ const Course = ({value}) => {
     );
 };
 
-export default Course;
+export default CategorySummary;

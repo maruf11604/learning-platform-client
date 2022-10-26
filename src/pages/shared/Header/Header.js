@@ -20,7 +20,7 @@ const Header = () => {
                         <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto d-flex align-items-center justify-content-between ">
                             <Link className='text-decoration-none text-dark'  to='/home' ><small className={mode}>HOME</small></Link>
-                            <Link className='m-2 text-decoration-none text-dark' to='/course' ><small className={mode}>COURSE</small></Link>
+                            <Link className='m-2 text-decoration-none text-dark' to='/topic' ><small className={mode}>COURSE</small></Link>
                             <Link className='me-2 text-decoration-none text-dark' to='/faq' ><small className={mode}>FAQ</small></Link>
                             <Link className='me-2 text-decoration-none text-dark' to='/blog' ><small className={mode}>BLOG</small></Link>
                             <div className="form-check form-switch">
