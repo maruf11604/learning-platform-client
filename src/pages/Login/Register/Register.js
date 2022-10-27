@@ -3,12 +3,13 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
 const Register = () => {
    
     
-    const {createUser}=useContext(AuthContext);
+    const {createUser,updateUserProfile}=useContext(AuthContext);
     const [result,setResult]=useState();
     
     const handleSubmit=event=>{
@@ -25,6 +26,7 @@ const Register = () => {
             const user=result.user;
             console.error(user);
             form.reset();
+            handleUpdateuserProfile(name,photoURL)
 
         })
         .catch((e)=> {
@@ -32,6 +34,16 @@ const Register = () => {
             setResult(errorMessage);
             console.log(e);
         })
+    }
+
+    const handleUpdateuserProfile=(name,photoURL)=>{
+        const profile={
+            displayName: name,
+            photoURL:photoURL
+        }
+        updateUserProfile(profile)
+            .then(()=>{})
+            .catch(error=>{console.log(error)})
     }
     return (
          <Form onSubmit={handleSubmit} className='w-50 mx-auto border m-3 p-3'>
@@ -59,7 +71,13 @@ const Register = () => {
                 <Button variant="primary" type="submit">
                     Register
                 </Button>
-                <p>{result}</p>
+                <Form.Text className='text-warning'>
+                    {
+                       result
+                    }
+                </Form.Text>
+                <>if you are register <Link to='/login'>login</Link></>
+                
          </Form>
     );
 };

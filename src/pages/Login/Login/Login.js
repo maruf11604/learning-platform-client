@@ -4,12 +4,17 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
 const Login = () => {
     const [error,setError]=useState('');
     const navigate=useNavigate();
+    const location=useLocation();
+
+    const from = location?.state?.from.pathname || '/';
+
+
     const{providerLogin,signIn}=useContext(AuthContext);
     const googleProvider= new GoogleAuthProvider();
     const handleGoogleSignIn=()=>{
@@ -17,6 +22,7 @@ const Login = () => {
         .then(result =>{
             const user =result.user;
             console.log(user);
+            navigate(from,{replace:true});
         })
         .catch(e =>{
             console.error(e)
@@ -33,7 +39,7 @@ const Login = () => {
             const user=result.user;
             console.log(user)
             form.reset();
-            navigate('/')
+            navigate(from,{replace:true});
         })
         .catch((e)=> {
             console.log(e);
@@ -63,6 +69,7 @@ const Login = () => {
                        error
                     }
                 </Form.Text>
+                <>if you do not have any account <Link to='/register'>Register</Link></>
             </Form>
 
             <p className='text-center'>or</p>
