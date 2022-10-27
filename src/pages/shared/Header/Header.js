@@ -8,6 +8,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
+import './Header.css';
 
 const Header = () => {
     const {user,toggleMode,bgMode,mode,logOut}=useContext(AuthContext);
@@ -36,7 +37,7 @@ const Header = () => {
                         </Nav>
                         <Nav className='ms-auto d-flex align-items-center justify-content-between'>
                         
-                        <Link className='ms-2 text-decoration-none text-dark' to='/register' ><small className={mode}>{user?.photoURL ? <Image src={user?.photoURL} roundedCircle style={{height:'40px'}} ></Image>: <FaUser></FaUser>}</small></Link>
+                        <Link className='ms-2 text-decoration-none text-dark' to='/register' ><small className={mode}>{user?.photoURL ? <Image  title={user?.displayName} src={user?.photoURL} roundedCircle style={{height:'40px'}} ></Image>: <FaUser></FaUser>}</small></Link>
 
                         </Nav>
                         <Nav.Link href="#deets">
