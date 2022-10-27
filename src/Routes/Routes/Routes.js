@@ -57,8 +57,14 @@ export const routes=createBrowserRouter([
                 element:<Register></Register>
             },
             {
-                path:'/checkout',
-                element:<PrivateRoute> <CheckOutDetails></CheckOutDetails></PrivateRoute>
+                path:'/checkout/:id',
+                element:<PrivateRoute> <CheckOutDetails></CheckOutDetails></PrivateRoute>,
+                loader:({params})=>fetch(`http://localhost:5000/checkout/${params.id}`)
+
+            },
+            {
+                path:'*',
+                element:<div>page not found 404</div>
             }
             
             
