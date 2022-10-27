@@ -1,7 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
-import { Image } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -10,7 +10,11 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
 const Header = () => {
-    const {user,toggleMode,bgMode,mode}=useContext(AuthContext);
+    const {user,toggleMode,bgMode,mode,logOut}=useContext(AuthContext);
+
+    const handleLogOut=()=>{
+        logOut()
+    }
     
     
     return (
@@ -31,12 +35,24 @@ const Header = () => {
                             </div>
                         </Nav>
                         <Nav className='ms-auto d-flex align-items-center justify-content-between'>
-                        <Link className='ms-2 text-decoration-none text-dark' to='/blog' ><small className={mode}>{user?.displayName}</small></Link>
-                        <Link className='ms-2 text-decoration-none text-dark' to='/login' ><small className={mode}>LOGIN</small></Link>
-                        <Link className='ms-2 text-decoration-none text-dark' to='/register' ><small className={mode}>REGISTER</small></Link>
+                        
                         <Link className='ms-2 text-decoration-none text-dark' to='/register' ><small className={mode}>{user?.photoURL ? <Image src={user?.photoURL} roundedCircle style={{height:'40px'}} ></Image>: <FaUser></FaUser>}</small></Link>
 
                         </Nav>
+                        <Nav.Link href="#deets">
+                            {
+                                user?.uid ?
+                                    <>
+                                    <Link className='ms-2 text-decoration-none text-dark' to='/blog' ><small className={mode}>{user?.displayName}</small></Link>
+                                    <Button className='ms-2' onClick={handleLogOut} variant="outline-primary">logout</Button>
+                                    </>
+                                    :
+                                    <>
+                                    <Link className='ms-2 text-decoration-none text-dark' to='/login' ><small className={mode}>LOGIN</small></Link>
+                                    <Link className='ms-2 text-decoration-none text-dark' to='/register' ><small className={mode}>REGISTER</small></Link>
+                                    </>
+                            }
+                        </Nav.Link>
                         </Navbar.Collapse>
                     </Container>
                     </Navbar>
