@@ -9,7 +9,7 @@ const AllCourse = ({values}) => {
     const [topics,setTopics]=useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/topics')
+        fetch('https://learning-platform-server-assignment.vercel.app/topics')
         .then(res=>res.json())
         .then(data => setTopics(data))
     },[])

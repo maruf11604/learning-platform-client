@@ -29,19 +29,19 @@ export const routes=createBrowserRouter([
             {
                 path:'/topic',
                 element:<Topic></Topic>,
-                loader:()=> fetch('http://localhost:5000/category')
+                loader:()=> fetch('https://learning-platform-server-assignment.vercel.app/category')
                 
             },
             
             {
                 path:'/category/:id',
                 element:<Category></Category>,
-                loader:({params})=>fetch(`http://localhost:5000/course/${params.id}`)
+                loader:({params})=>fetch(`https://learning-platform-server-assignment.vercel.app/course/${params.id}`)
             },
             {
                 path:'/program/:id',
                 element:<Program></Program>,
-                loader:({params})=>fetch(`http://localhost:5000/program/${params.id}`)
+                loader:({params})=>fetch(`https://learning-platform-server-assignment.vercel.app/program/${params.id}`)
             },
             
             {
@@ -59,7 +59,7 @@ export const routes=createBrowserRouter([
             {
                 path:'/checkout/:id',
                 element:<PrivateRoute> <CheckOutDetails></CheckOutDetails></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/checkout/${params.id}`)
+                loader:({params})=>fetch(`https://learning-platform-server-assignment.vercel.app/checkout/${params.id}`)
 
             },
             {
