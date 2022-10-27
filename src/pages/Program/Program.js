@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const Program = () => {
     const program=useLoaderData();
@@ -25,6 +25,7 @@ const Program = () => {
                     <div className='d-flex justify-content-around'>
                         <p><span className='fw-bold' >rating:</span>{rating}</p>
                     </div>
+                    <Link to='/checkout'><button className='w-100 btn btn-outline-primary'>Checkout</button></Link>
                 </div>
              </div>
             </div>

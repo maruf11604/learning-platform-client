@@ -10,6 +10,8 @@ import Home from "../../pages/Home/Home";
 import Program from "../../pages/Program/Program";
 import Login from "../../pages/Login/Login/Login";
 import Register from "../../pages/Login/Register/Register";
+import CheckOutDetails from "../../pages/CheckOutDetails/CheckOutDetails";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const routes=createBrowserRouter([
     {
@@ -53,6 +55,10 @@ export const routes=createBrowserRouter([
             {
                 path:'/register',
                 element:<Register></Register>
+            },
+            {
+                path:'/checkout',
+                element:<PrivateRoute> <CheckOutDetails></CheckOutDetails></PrivateRoute>
             }
             
             
