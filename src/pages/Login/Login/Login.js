@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
@@ -15,13 +15,27 @@ const Login = () => {
     const from = location?.state?.from.pathname || '/';
 
 
-    const{providerLogin,signIn}=useContext(AuthContext);
+    const{providerLogin,signIn,gitHubLogin}=useContext(AuthContext);
     const googleProvider= new GoogleAuthProvider();
+    const githubProvider= new GithubAuthProvider();
+
     const handleGoogleSignIn=()=>{
         providerLogin(googleProvider)
         .then(result =>{
             const user =result.user;
             console.log(user);
+            navigate(from,{replace:true});
+        })
+        .catch(e =>{
+            console.error(e)
+        })
+    }
+
+    const handleGitHubSignIn=()=>{
+        gitHubLogin(githubProvider)
+        .then(result=>{
+            const user =result.user;
+            console.log(user)
             navigate(from,{replace:true});
         })
         .catch(e =>{
@@ -75,7 +89,7 @@ const Login = () => {
             <p className='text-center'>or</p>
             <div className='d-flex flex-column w-25 justify-content-center mx-auto'>
                 <Button onClick={handleGoogleSignIn} className='text-center' variant="outline-primary">SIGN IN WITH GOOGLE</Button> <br />
-                <Button className='text-center' variant="outline-dark">SIGN IN WITH GITHUB</Button>
+                <Button onClick={handleGitHubSignIn} className='text-center' variant="outline-dark">SIGN IN WITH GITHUB</Button>
             </div>
         </div>
     );
